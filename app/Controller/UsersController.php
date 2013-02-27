@@ -1,29 +1,81 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Users Controller
- *
- * @property User $User
- */
+* Users Controller
+*
+* @property User $User
+*/
 class UsersController extends AppController {
 
+
+	public function login() {
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$this->Session->setFlash('Invalid password');
+			}
+		}
+	}
+
+	public function logout()
+	{
+		$this->redirect($this->Auth->logout());
+	}
+
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+		$this->Auth->allow('add');
+		$this->Auth->allow('index');
+		$this->Auth->allow('view');
+		$this->Auth->allow('logout');
+	}
+	
+	public function isAuthorized($user){
+
+		if($this->action == 'delete'  && $user['id'] ==1) {
+ 	 	   return true;
+ 	 	}
+
+
+		if($this->action == 'edit'){
+
+			//users/edit/6 id is 6
+			$id = $this->request->params['pass'][0];
+
+			if(isset($user['id']) && $user['id'] == $id){
+				return true;
+			}
+			else {
+				$this->Session->setFlash('petit hacker de merde');
+				return false;
+			}
+		}
+
+
+		return parent::isAuthorized($user);
+	}
+	
+
+
 /**
- * index method
- *
- * @return void
- */
+* index method
+*
+* @return void
+*/
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+* view method
+*
+* @throws NotFoundException
+* @param string $id
+* @return void
+*/
 	public function view($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
@@ -33,10 +85,10 @@ class UsersController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
- */
+* add method
+*
+* @return void
+*/
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
@@ -47,15 +99,16 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
+
 	}
 
 /**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+* edit method
+*
+* @throws NotFoundException
+* @param string $id
+* @return void
+*/
 	public function edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
@@ -74,13 +127,13 @@ class UsersController extends AppController {
 	}
 
 /**
- * delete method
- *
- * @throws NotFoundException
- * @throws MethodNotAllowedException
- * @param string $id
- * @return void
- */
+* delete method
+*
+* @throws NotFoundException
+* @throws MethodNotAllowedException
+* @param string $id
+* @return void
+*/
 	public function delete($id = null) {
 		$this->User->id = $id;
 		if (!$this->User->exists()) {

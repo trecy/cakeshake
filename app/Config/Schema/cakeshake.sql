@@ -7,7 +7,7 @@
 #
 # Hôte: localhost (MySQL 5.5.29)
 # Base de données: cakeshake
-# Temps de génération: 2013-02-27 08:43:20 +0000
+# Temps de génération: 2013-02-26 11:15:20 +0000
 # ************************************************************
 
 
@@ -120,9 +120,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `sex`, `birthdate`)
 VALUES
 	(1,'Thomas','pass','thomas@guilleminot.com','Homme','1993-03-30 20:09:00'),
 	(2,'Clara','pass','clara@hinton.com','Femme','2013-02-25 20:10:00'),
-	(3,'Jeremy','pass','jeremy@cambot.com','Homme','2013-02-25 20:10:00'),
-	(4,'Trecy','pass','trecy@fournier.com','Femme','1990-11-23 18:30:00'),
-	(5,'toto','87cdec35d3e9e2d725e73c1e2b8221c1b3ec4d71','dsjhdskjh@hdsjkdh.cvol','enorme','2013-02-26 13:08:00');
+	(3,'jeremy','pass','jeremy@cambot.com','Homme','2013-02-25 20:10:00'),
+	(4,'trÃ©cy','pass','trecy@fournier.com','Femme','2013-02-25 20:11:00');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

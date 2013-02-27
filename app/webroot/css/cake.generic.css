@@ -97,6 +97,9 @@ p {
 	background: #003d4c;
 	text-decoration: underline;
 }
+#header.admin,#header.admin h1, #header.admin h1 a{
+	background-color:#a00;
+}
 #content{
 	background: #fff;
 	clear: both;
@@ -736,4 +739,20 @@ pre {
 /** Elements **/
 #url-rewriting-warning {
 	display:none;
+}
+
+
+/** code perso **/
+
+#connection {
+	float:left;
+	color:#3DD8EF;
+	margin-left: 10px; 
+	margin-right: 20px;
+}
+
+#connection a{
+	color:#3DD8EF;
+	margin-left: 10px; 
+	margin-right: 20px;
 }
