@@ -37,7 +37,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	</head>
 		<body>
-			<?php debug($me); ?>
+		
 			<div id="container">
 				<div id="header">
 					<h1 style="float:left;"><?php echo $this->Html->link('Users', '/users'); ?></h1>
