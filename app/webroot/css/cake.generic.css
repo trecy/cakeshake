@@ -780,8 +780,14 @@ body{
 				background-position: -5400px 0, -4600px 0, -3800px 0, -3000px 0;	
 			}
 			
-			.rain { height: 577px; }
-			#UserLoginForm { height: 577px; }
+			.rain { 
+				height: 642px;
+				font-size: 16px;
+				 }
+			#UserLoginForm { 
+				height: 640px;
+				font-size: 16px;
+				 }
 
 			/* Keyfram-licious animation */
 			@-webkit-keyframes colors {
@@ -828,8 +834,8 @@ body{
 			}
 			form label{
 				display: block;
-				padding: 80px 10px 5px 15px;
-				font-size: 16px;
+				padding: 10px 10px 5px 15px;
+				
 				color: #777;
 			}
 			form input{
